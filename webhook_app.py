@@ -143,7 +143,7 @@ def ask_gemini(chat_id, user_id, name):
     resp = http.post(url, headers={'x-goog-api-key': GEMINI_KEY}, json={
         'contents': [{'parts': [{'text': prompt}]}],
         'generationConfig': {'temperature': 0.8, 'maxOutputTokens': 450}
-    }, timeout=(10, 60)
+    }, timeout=(10, 60))
     if not resp.ok:
         log.error('Gemini HTTP status=%s (response omitted)', resp.status_code)
         resp.raise_for_status()
